@@ -1,0 +1,17 @@
+{
+  "name": "brawlbot_discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Misar",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "discord.js-commando": "^0.12.3",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1"
+  }
+}
