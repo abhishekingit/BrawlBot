@@ -31,6 +31,9 @@ module.exports = class SaveTagCommand extends Command {
 
         }
         let User = await Database.SavePlayerTag(playerTag, message.author.id, message.author.username);
+        if(!User) {
+            await message.channel.send(`Hey it looks like your playertag is already saved!!`);
+        }
 
         // fs.writeFileSync(path.resolve(__dirname, 'tags.json'), JSON.stringify(player));
                 

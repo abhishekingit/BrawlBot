@@ -5,7 +5,7 @@ async function SavePlayerTag(tag, id, username) {
     User.findOne({discordID: id})
     .then(userDoc => {
         if(userDoc) {
-            return `Hey it looks like Your playertag is already saved!..`;
+            return false;
 
         }
         const user = new User({
