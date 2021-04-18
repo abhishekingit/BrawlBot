@@ -29,4 +29,16 @@ async function SavePlayerTag(tag, id, username) {
     
 }
 
-module.exports = {SavePlayerTag};
+async function GetPlayerTag(id) {
+    return User.findOne({discordID: id})
+    .then(userdoc => {
+        return userdoc;        
+              
+    })
+    
+    .catch(err => console.log(err));
+
+}
+
+
+module.exports = {SavePlayerTag, GetPlayerTag};

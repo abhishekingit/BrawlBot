@@ -24,17 +24,33 @@ module.exports = class SaveTagCommand extends Command {
     }
 
     async run(message, {playerTag}) {
+        let embed = new Discord.MessageEmbed()        
+        .setThumbnail('https://i.imgur.com/Ebe27is.png');
+                   
+        
         let player = {
             tag: playerTag,
             discordID: message.author.id,
             discordName: message.author.username
 
         }
-        let User = await Database.SavePlayerTag(playerTag, message.author.id, message.author.username);
-        if(!User) {
-            await message.channel.send(`Hey it looks like your playertag is already saved!!`);
-        }
+        let savedTag = await Database.GetPlayerTag(message.author.id);
+        if(savedTag) {
+            embed.setColor('#FFCD00');
+            embed.setTitle(savedTag.playerTag);
+            embed.setDescription('Hey it looks like your playertag is already saved!!');
+            return await message.embed(embed);
 
+        } else {
+            let User = await Database.SavePlayerTag(playerTag, message.author.id, message.author.username);
+            embed.setColor('#32C12C');
+            console.log(playerTag);
+            embed.setTitle(playerTag);
+            embed.setDescription('Done, your player tag is saved!!!');
+            return await message.author.send(embed);
+
+        }    
+        
         // fs.writeFileSync(path.resolve(__dirname, 'tags.json'), JSON.stringify(player));
                 
         
