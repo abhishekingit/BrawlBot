@@ -12,7 +12,7 @@ module.exports = class SaveTagCommand extends Command {
             aliases: ['save'],
             group: 'brawlstars',
             memberName: 'savetag',
-            description: 'Saves the playerTags to DB',
+            description: 'Saves the brawlstars playerTags of a user',
             args: [
                 {
                     key: 'playerTag',

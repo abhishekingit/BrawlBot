@@ -40,5 +40,18 @@ async function GetPlayerTag(id) {
 
 }
 
+async function UpdatePlayerTag(id, newTag) {
+    return User.findOneAndUpdate({discordID: id}, {playerTag: newTag}, {
+        new: true
+    })
+    .then(result => {
+        console.log('Updated playerTag');
+        
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
 
-module.exports = {SavePlayerTag, GetPlayerTag};
+
+module.exports = {SavePlayerTag, GetPlayerTag, UpdatePlayerTag};
