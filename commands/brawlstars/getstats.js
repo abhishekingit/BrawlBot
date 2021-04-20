@@ -28,16 +28,23 @@ module.exports = class GetStatsCommand extends Command {
                 embed.setColor('#526EFF');
                 embed.setTitle('Stats');
                 embed.setDescription(`
-                Tag: ${stats.tag}
-                name: ${stats.name}
-                trophies: ${stats.trophies}
-                Highest trophies: ${stats.highestTrophies}
-                EXP Level: ${stats.expLevel}
-                EXP Points: ${stats.expPoints}
-                3vs3 Victories: ${stats['3vs3Victories']}
-                Solo Victories: ${stats.soloVictories}
-                Duo Victories: ${stats.duoVictories}
+                Tag: **${stats.tag}**
 
+                name: **${stats.name}**
+
+                trophies: **${stats.trophies}**
+
+                Highest trophies: **${stats.highestTrophies}**
+
+                EXP Level: **${stats.expLevel}**
+
+                EXP Points: **${stats.expPoints}**
+
+                3vs3 Victories: **${stats['3vs3Victories']}**
+
+                Solo Victories: **${stats.soloVictories}**
+
+                Duo Victories: **${stats.duoVictories}**
                 `)
                 return await message.embed(embed);
 
