@@ -34,11 +34,11 @@ async function GetBattleLog(playerTag) {
     
 }
 
-let playerInfo = GetBattleLog("#28J8LPGQ2");
-playerInfo.then((data) => {
-    console.log(data);
+// let playerInfo = GetPlayerInfo("#28J8LPGQ2");
+// playerInfo.then((data) => {
+//     console.log(data);
 
-});
-console.log(playerInfo);
+// });
+// console.log(playerInfo);
 
-
+module.exports = {GetPlayerInfo, GetBattleLog}

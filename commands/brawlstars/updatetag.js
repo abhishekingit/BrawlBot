@@ -1,8 +1,7 @@
 const {Command} = require("discord.js-commando");
 const Discord = require("discord.js");
 const Database = require("../../Utilities/Database");
-const path = require('path');
-const fs = require("fs");
+
 
 module.exports = class UpdateTagCommand extends Command {
     constructor(client) {
