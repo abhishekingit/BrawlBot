@@ -4,6 +4,7 @@ const Database = require("../../Utilities/Database");
 const BrawlStars = require("../../Utilities/brawlStars");
 
 
+
 module.exports = class GetStatsCommand extends Command {
     constructor(client) {
         super(client, {
@@ -19,11 +20,13 @@ module.exports = class GetStatsCommand extends Command {
     async run(message) {
         let embed = new Discord.MessageEmbed()
         .setThumbnail('https://i.imgur.com/Ebe27is.png');
+        
 
         let savedTag = await Database.GetPlayerTag(message.author.id);
         if(savedTag) {
             let stats = await BrawlStars.GetPlayerInfo(savedTag.playerTag);
             if(stats) {
+                
                 console.log(stats.tag);
                 embed.setColor('#526EFF');
                 embed.setTitle('Stats');
