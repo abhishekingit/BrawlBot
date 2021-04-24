@@ -21,14 +21,16 @@ module.exports = class BattleLogCommand extends Command {
         let savedTag = await Database.GetPlayerTag(message.author.id);
         if(savedTag) {
             let Battlelog = await BrawlStars.GetBattleLog(savedTag.playerTag);
-            console.log(Battlelog.items[1].event);
-            console.log(Battlelog.items[1].battle);
+            // console.log(Battlelog.items[1].event);
+            // console.log(Battlelog.items[1].battleTime);
             embed.setColor('#7F4FC9');
-            embed.setTitle('BattleLog');
+            embed.setTitle(`Battlelog for ${savedTag.playerTag}`);
+            embed.setFooter('Last played at');           
             embed.setDescription(`
-                ${Battlelog.items.slice(0,5).map((item, i) => `
-                    **${item.event.mode}** ${(item.battle.result === 'victory' || item.battle.rank <= 6) ? '\:white_check_mark:' : '\:x:' }
-                      ${item.event.map}
+                ${Battlelog.items.slice(0,6).map((item, i) => `
+                    **Event**: ${item.event.mode} ${(item.battle.result === 'victory' || item.battle.rank <= 6) ? '\:white_check_mark:' : '\:x:' }
+                    **Map**: ${item.event.map}
+                      ${item.event.mode !== 'soloShowdown' ? `${item.battle.starPlayer.tag === savedTag.playerTag ? '\:star:' : ''}` : `**Rank**: ${item.battle.rank}`}
                 `)}
                 
             `)
