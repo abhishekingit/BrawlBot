@@ -25,7 +25,7 @@ module.exports = class BattleLogCommand extends Command {
             // console.log(Battlelog.items[1].battleTime);
             embed.setColor('#7F4FC9');
             embed.setTitle(`Battlelog for ${savedTag.playerTag}`);
-            embed.setFooter('Last played at');           
+                
             embed.setDescription(`
                 ${Battlelog.items.slice(0,6).map((item, i) => `
                     **Event**: ${item.event.mode} ${(item.battle.result === 'victory' || item.battle.rank <= 6) ? '\:white_check_mark:' : '\:x:' }

@@ -34,9 +34,16 @@ async function GetBattleLog(playerTag) {
     
 }
 
-// let playerInfo = GetBattleLog("#28J8LPGQ2");
+// async function GetClubInfo(clubTag) {
+//     let detag = clubTag.replace('#', '23');
+
+    
+
+// }
+
+// let playerInfo = GetPlayerInfo("#28J8LPGQ2");
 // playerInfo.then((data) => {
-//     console.log(data.items[7].battle);
+//     console.log(data);
 
 // });
 // console.log(playerInfo);
