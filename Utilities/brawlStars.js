@@ -34,12 +34,20 @@ async function GetBattleLog(playerTag) {
     
 }
 
-// async function GetClubInfo(clubTag) {
-//     let detag = clubTag.replace('#', '23');
+async function GetClubMembers(clubTag) {
+    let detag = clubTag.replace('#', '23');
 
-    
+    let response = await fetch(`https://api.brawlstars.com/v1/clubs/%${detag}/members`, {
+        headers: {
+            'authorization': bearer,
+        }
+    }).then();
 
-// }
+    if(response.status != 200) { return false; }
+    let data = await response.json();
+    return data;    
+
+}
 
 // let playerInfo = GetPlayerInfo("#28J8LPGQ2");
 // playerInfo.then((data) => {
@@ -48,4 +56,4 @@ async function GetBattleLog(playerTag) {
 // });
 // console.log(playerInfo);
 
-module.exports = {GetPlayerInfo, GetBattleLog}
+module.exports = {GetPlayerInfo, GetBattleLog, GetClubMembers}
