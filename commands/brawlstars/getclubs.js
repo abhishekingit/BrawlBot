@@ -6,10 +6,10 @@ const BrawlStars = require("../../Utilities/brawlStars");
 module.exports = class GetClubInfoCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'getclubs',
-            aliases: ['myclubs', 'clubs'],
+            name: 'myclubs',
+            aliases: ['clubs'],
             group: 'brawlstars',
-            memberName: 'getclub',
+            memberName: 'myclub',
             description: 'Fetches the clubs that the user belongs to'
                         
         });
